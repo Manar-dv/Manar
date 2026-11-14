@@ -130,14 +130,68 @@ summary {
   border: 1px solid #ccc;
   border-radius: 8px;
   box-sizing: border-box;}
-.quran-tex {font-size: 26px;
-line-height: 2.4;}
+
+.menu-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  padding: 0 8px;
+  border-radius: 0;
+  cursor: pointer;
+}
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 260px;
+  height: 100%;
+  background-color: #2c3e50;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transform: translateX(100%);
+  transition: transform 0.3s;
+  z-index: 1000;
+}
+.side-menu.open {
+  transform: translateX(0);
+}
+.side-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  padding: 0;
+  align-self: flex-start;
+  cursor: pointer;
+}
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+.overlay.show {
+  display: block;
+}
 
 </style>
 </head>
 <body>
 <nav>
-<div class="brand"> 
+<div class="brand">
+<button id="menuBtn"  class="menu-btn" aria-label="فتح القائمة">☰</button>
 <img src="logo.jpg" alt="شعار مَوْقِعُ بِالْقُرْآنِ نَحْيَا" class="logo">
   <span>بِالْقُرْآنِ نَحْيَا</span>
 </div>
@@ -146,7 +200,13 @@ line-height: 2.4;}
     <a href="#lessons">الدروس</a>
   </div>
 </nav>
-
+<div id="overlay" class="overlay"></div>
+<aside id="sideMenu" class="side-menu">
+<button id="closeBtn" class="close-btn" aria-label="إغلاق القائمة">X</button>
+<a href="#home">الرئيسية .<span lang="fr">Accueil</span></a>
+<a href="#lessons">الدروس .<span lang="fr">leçons</span></a>
+<a href="#">الرابط .<span lang="fr">liens</span></a>
+</aside>
 <h1 id="home">بِالْقُرْآنِ نَحْيَا</h1>
 <p>༺ هَذَا مَوْقِعُ الْقُرْآنِ وَالتَّفْسِيرِ ༻</p>
 
@@ -166,39 +226,74 @@ line-height: 2.4;}
 </div>
 
 <h2 id="lessons">دروس التفسير</h2>
-<input type="text" id="searchInput" placeholder="ابحث عن درس: سورة، آية، كلمة...">
+<input type="text" id="searchInput" placeholder="ابحث بالسورة أو التاريخ: سورة هود نوفمبر 2026...">
 
-<div class="lesson">
+<div class="lesson" data-keywords="عاد هود">
   <h3>تفسير سورة هود: الآيات 50 إلى 60</h3>
   <div class="date">الخميس، 12 نوفمبر 2026</div>
   <iframe loading="lazy" width="100%" height="315" src="https://www.youtube.com/embed/vGuxX2D_psE?si=Mee5L4MYNqbvy9Ms" title="تفسير سورة هود: الآيات 50 إلى 60" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  <details>
-    <summary>قراءة الآيات</summary>
-    <p class="quran-tex">(60)... عَادٍ أَخَاهُمۡ هُودٗاۚ قَالَ يَٰقَوۡمِ ٱعۡبُدُواْ ٱللَّهَ مَا لَكُم مِّنۡ إِلَٰهٍ غَيۡرُهُۥٓۖ إِنۡ أَنتُمۡ إِلَّا مُفۡتَرُونَ (50) يَٰقَوۡمِ لَآ أَسۡـَٔلُكُمۡ عَلَيۡهِ أَجۡرًاۖ إِنۡ أَجۡرِيَ إِلَّا عَلَى ٱلَّذِي فَطَرَنِيٓۚ أَفَلَا تَعۡقِلُونَ (51) وَيَٰقَوۡمِ ٱسۡتَغۡفِرُواْ رَبَّكُمۡ ثُمَّ تُوبُوٓاْ إِلَيۡهِ يُرۡسِلِ ٱلسَّمَآءَ عَلَيۡكُم مِّدۡرَارٗا وَيَزِدۡكُمۡ قُوَّةً إِلَىٰ قُوَّتِكُمۡ وَلَا تَتَوَلَّوۡاْ مُجۡرِمِينَ (52) قَالُواْ يَٰهُودُ مَا جِئۡتَنَا بِبَيِّنَةٖ وَمَا نَحۡنُ بِتَارِكِيٓ ءَالِهَتِنَا عَن قَوۡلِكَ وَمَا نَحۡنُ لَكَ بِمُؤۡمِنِينَ (53) إِن نَّقُولُ إِلَّا ٱعۡتَرَىٰكَ بَعۡضُ ءَالِهَتِنَا بِسُوٓءٖۗ قَالَ إِنِّيٓ أُشۡهِدُ ٱللَّهَ وَٱشۡهَدُوٓاْ أَنِّي بَرِيٓءٞ مِّمَّا تُشۡرِكُونَ (54) مِن دُونِهِۦۖ فَكِيدُونِي جَمِيعٗا ثُمَّ لَا تُنظِرُونِ (55) إِنِّي تَوَكَّلۡتُ عَلَى ٱللَّهِ رَبِّي وَرَبِّكُمۚ مَّا مِن دَآبَّةٍ إِلَّا هُوَ ءَاخِذُۢ بِنَاصِيَتِهَآۚ إِنَّ رَبِّي عَلَىٰ صِرَٰطٖ مُّسۡتَقِيمٖ (56) فَإِن تَوَلَّوۡاْ فَقَدۡ أَبۡلَغۡتُكُم مَّآ أُرۡسِلۡتُ بِهِۦٓ إِلَيۡكُمۡۚ وَيَسۡتَخۡلِفُ رَبِّي قَوۡمًا غَيۡرَكُمۡ وَلَا تَضُرُّونَهُۥ شَيۡـًٔاۚ إِنَّ رَبِّي عَلَىٰ كُلِّ شَيۡءٍ حَفِيظٞ (57) وَلَمَّا جَآءَ أَمۡرُنَا نَجَّيۡنَا هُودٗا وَٱلَّذِينَ ءَامَنُواْ مَعَهُۥ بِرَحۡمَةٖ مِّنَّا وَنَجَّيۡنَٰهُم مِّنۡ عَذَابٍ غَلِيظٖ (58) وَتِلۡكَ عَادٞۖ جَحَدُواْ بِـَٔايَٰتِ رَبِّهِمۡ وَعَصَوۡاْ رُسُلَهُۥ وَٱتَّبَعُوٓاْ أَمۡرَ كُلِّ جَبَّارٍ عَنِيدٖ (59) وَأُتۡبِعُواْ فِي هَٰذِهِ ٱلدُّنۡيَا لَعۡنَةٗ وَيَوۡمَ ٱلۡقِيَٰمَةِۗ أَلَآ إِنَّ عَادٗا كَفَرُواْ رَبَّهُمۡۗ أَلَا بُعۡدٗا لِّعَادٖ قَوۡمِ هُودٖ (60)</p>
-  </details>
+
 </div>
-<h2>روابط وصور</h2>
+<h2 id="#links">روابط وصور</h2>
 <ul>
   <li><a href="https://www.youtube.com/@manar-sn" target="_blank">قناة منار على يوتيوب</a></li>
   <li><a href="https://t.me/+JkIBCTI-kXU4ZTk0" target="_blank">قناة تليجرام</a></li>
 </ul>
-<img src="image_91f8e776 .jpg" alt="مصحف مفتوح على طاولة خشبية">
+<img src="image_91f8e776.jpg" alt="مصحف مفتوح على طاولة خشبية">
 <script>
-  
-  const searchInput = document.getElementById("searchInput");
-  const lessons = document.querySelectorAll(".lesson");
+function normalize(text) {
+  return text
+    .replace(/[\u064B-\u065F\u0670\u06D6-\u06ED\u0640]/g, "")
+    .replace(/[أإآٱ]/g, "ا")
+    .replace(/ى/g, "ي")
+    .replace(/ة/g, "ه")
+    .replace(/[٠-٩]/g, function (d) {
+      return "٠١٢٣٤٥٦٧٨٩".indexOf(d);
+    })
+    .toLowerCase();
+}
 
-  searchInput.addEventListener("input", function () {
-    const query = searchInput.value.trim();
+const searchInput = document.getElementById("searchInput");
+const lessons = document.querySelectorAll(".lesson");
 
-    lessons.forEach(function (lesson) {
-      if (lesson.textContent.includes(query)) {
-        lesson.style.display = "block";
-      } else {
-        lesson.style.display = "none";
-      }
+searchInput.addEventListener("input", function () {
+  const words = normalize(searchInput.value.trim()).split(/\s+/).filter(Boolean);
+
+  lessons.forEach(function (lesson) {
+    const title = lesson.querySelector("h3").textContent;
+    const date = lesson.querySelector(".date").textContent;
+    const keywords = lesson.dataset.keywords || "";
+    const searchable = normalize(title + " " + date + " " + keywords);
+
+    const match = words.every(function (word) {
+      return searchable.includes(word);
     });
+
+    lesson.style.display = match ? "block" : "none";
   });
+});
+
+const menuBtn = document.getElementById("menuBtn");
+const closeBtn = document.getElementById("closeBtn");
+const sideMenu = document.getElementById("sideMenu");
+const overlay = document.getElementById("overlay");
+
+function openMenu() {
+  sideMenu.classList.add("open");
+  overlay.classList.add("show");
+}
+
+function closeMenu() {
+  sideMenu.classList.remove("open");
+  overlay.classList.remove("show");
+}
+
+menuBtn.addEventListener("click", openMenu);
+closeBtn.addEventListener("click", closeMenu);
+overlay.addEventListener("click", closeMenu);
+sideMenu.querySelectorAll("a").forEach(function (link) {
+  link.addEventListener("click", closeMenu);
+});
 </script>
 </body>
 </html>
