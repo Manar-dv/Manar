@@ -73,15 +73,19 @@ img {
   margin: 20px auto;
   border-radius: 10px;
 }
-.banner { background-color: #2c3e50;
-color: white;
-font-size: 30px;
-text-align: center;
-padding: 20px;
-border-radius: 10px;
-margin: 0 0 20px;}
-@media (max-width:600px) {
-.banner { font-size: 20px;}
+.banner {
+  display: block;
+  text-decoration:none;
+  background-color: #2c3e50;
+  color: width;
+  font-size: 30px;
+  text-align: center; 
+  padding: 20px;
+  border-radius:10px;
+  margin: 0 0 20px; 
+}
+.banner:hover{
+  background-color:#3d566e;
 }
 
 .grid {
@@ -231,6 +235,14 @@ summary {
 .overlay.show {
   display: block;
 }
+@media (max-width:600px) {
+.links { 
+  display: none;
+}
+nav span{
+  font-size:18px;
+}
+}
 </style>
 </head>
 <body>
@@ -240,9 +252,7 @@ summary {
     <img src="logo.jpg" alt="شعار موقع بالقرآن نحيا" class="logo">
     <span>بِالْقُرْآنِ نَحْيَا</span>
   </div>
-  <div class="links">
-    <a href="#home">الرئيسية</a>
-    <a href="#lessons">الدروس</a>
+  <div class="links"> 
   </div>
 </nav>
 
@@ -252,17 +262,18 @@ summary {
   <a href="#home">الرئيسية · <span lang="fr">Accueil</span></a>
   <a href="#lessons">الدروس · <span lang="fr">Leçons</span></a>
   <a href="#links">الروابط · <span lang="fr">Liens</span></a>
+
 </aside>
 
 <img src="poster.jpg" alt="مجالس التفسير - JOTAYU-TAFSIR" class="poster">
-<div class="banner"><bre>✧ انْـضَـمَّ إلـى قَـنَـاتِـنَـا الـرَّسْـمِـيَّـةِ عَـلَـى يـوتـيـوب 𝐌𝐚𝐧𝐚𝐫 𝐬𝐧 ✧</bre></div>
+<a class="banner" href="https://www.youtube.com/@manar-sn" target="_blank" rel="noopener"> ✧ انْـضَـمَّ إلـى قَـنَـاتِـنَـا الـرَّسْـمِـيَّـةِ عَـلَـى يـوتـيـوب 𝐌𝐚𝐧𝐚𝐫 𝐬𝐧 ✧</a> 
 
 <h1 id="home">بِالْقُرْآنِ نَحْيَا</h1>
 <p>༺ هَذَا مَوْقِعُ الْقُرْآنِ وَالتَّفْسِيرِ ༻</p>
 
 <div class="slider">
   <img src="gallery1.jpg" alt="دعوة للاشتراك في قناة منار Manar sn على يوتيوب للشيخ مصطفى عمر جوب (Cheikh Moustahpa Omar Diop): تفسير وخطب ومواعظ" class="active">
-  <img src="gallery2.jpg" alt="إعادة دروس التفسير السابقة للشيخ مصطفى عمر جوب كل يوم أحد. Rediffusion des leçons de tafsir précédentes du cheikh  Moustahpa Omar chaque dimanche.">
+  <img src="gallery2.jpg" alt="إعادة دروس التفسير السابقة للشيخ مصطفى عمر جوب كل يوم أحد. Rediffusion des leçons de tafsir précédentes du cheikh Moustahpa Omar diop chaque dimanche.">
 </div>
 
 <div class="grid">
@@ -292,7 +303,7 @@ summary {
 <h2 id="links">روابط وصور</h2>
 <ul>
   <li>
-    <a href="https://www.youtube.com/@manar-sn" target="_blank">انضم إلى قناتنا الرسمية على يوتيوب Manar sn</a>
+    <a href="https://www.youtube.com/@manar-sn" target="_blank" rel="noopener">✧ انْـضَـمَّ إلـى قَـنَـاتِـنَـا الـرَّسْـمِـيَّـةِ عَـلَـى يـوتـيـوب 𝐌𝐚𝐧𝐚𝐫 𝐬𝐧 ✧</bre></a>
     <br>
     لمتابعة أحدث الدروس والتفسير والخطب الدينية لفضيلة الشيخ مصطفى عمر جوب (Cheikh Moustahpa omar Diop)
   </li>
