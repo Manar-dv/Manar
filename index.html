@@ -173,11 +173,10 @@ button {
   color: #666;
   font-size: 16px;
 }
-
-.lesson iframe { 
+.lesson iframe {
   display: block;
   width: 100%;
-  height: auto; 
+  height: auto;
   aspect-ratio: 16 / 9;
   border: 0;
 }
@@ -221,7 +220,7 @@ summary {
   transform: translateX(100%);
   transition: transform 0.3s;
   z-index: 1000;
-overflow-y: auto
+  overflow-y: auto;
 }
 .side-menu.open {
   transform: translateX(0);
@@ -253,6 +252,25 @@ overflow-y: auto
 .overlay.show {
   display: block;
 }
+.menu-title {
+  color: #d9e2ec;
+  font-size: 16px;
+  margin-top: 10px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+.sheikh {
+  color: #2c3e50;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+.filter-info {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 10px 0 0;
+}
 @media (max-width: 1100px) {
   .top-area {
     grid-template-columns: 1fr;
@@ -276,23 +294,6 @@ overflow-y: auto
     font-size: 20px;
   }
 }
-.menu-title { 
-  color: #d9e2ec;
-  font-size: 16px;
-  margin-top: 10px; 
-  padding-top: 15px;
-  border-top: 1px solid rgba(255, 255, 255, 0.3);}
-.sheikh { 
-  color: #2c3e50;
-  font-weight: bold;
-  font: size 16px;
-  margin-bottom:4px;}
-.filter-info { 
-font-size:20px;
-font-weight: bold;
-color:#2c3e50;
-margin:10px 0 0;
-}
 </style>
 </head>
 <body>
@@ -310,11 +311,10 @@ margin:10px 0 0;
   <a href="#home">الرئيسية · <span lang="fr">Accueil</span></a>
   <a href="#lessons">الدروس · <span lang="fr">Leçons</span></a>
   <a href="#links">الروابط · <span lang="fr">Liens</span></a>
-<div class="menu-title">الدروس حسب الشيخ</div>
-<a href="#lassons" class="sheikh-link" data-sheikh="all">كل الدروس</a>
-<a href="#lessons" class="sheikh-link" data-sheikh="mustaph"> الشيخ مصطفى عمرجوب</a>
-<a href="#lessons" class="sheikh-link" data-sheikh="mustapha">أستاذ محمد سيرين كان</a>
-
+  <div class="menu-title">الدروس حسب الشيخ</div>
+  <a href="#lessons" class="sheikh-link" data-sheikh="all">كل الدروس</a>
+  <a href="#lessons" class="sheikh-link" data-sheikh="mustapha">الشيخ مصطفى عمر جوب</a>
+  <a href="#lessons" class="sheikh-link" data-sheikh="sire-kane">أستاذ محمد سيرين كان</a>
 </aside>
 
 <div class="top-area">
@@ -348,19 +348,20 @@ margin:10px 0 0;
 </div>
 
 <h2 id="lessons">دروس التفسير</h2>
-<input type="text" id="searchInput" placeholder="ابحث بالسورة أو التاريخ: سورة هود نوفمبر 2026...">
-<input type="text" id="searchInput" placeholder="ابحث بالسورة أو التاريخ أو اسم الشيخ....">
-<p id="filterinfo" class="filter-info"></p>
-<div class="lesson" data-sheikh="mustaph" data-keywords="عاد هود">
-  <h3>تفسير سورة هود: الآيات 50 إلـى60</h3> 
-<div class="">الشيخ مصطفى عمرجوب</div>
+<input type="text" id="searchInput" placeholder="ابحث بالسورة أو التاريخ أو اسم الشيخ...">
+<p id="filterInfo" class="filter-info"></p>
+
+<div class="lesson" data-sheikh="mustapha" data-keywords="عاد هود">
+  <h3>تفسير سورة هود: الآيات 50 إلى 60</h3>
+  <div class="sheikh">الشيخ مصطفى عمر جوب</div>
   <div class="date">الخميس، 12 نوفمبر 2026</div>
   <iframe loading="lazy" width="100%" height="315" src="https://www.youtube.com/embed/vGuxX2D_psE?si=Mee5L4MYNqbvy9Ms" title="تفسير سورة هود: الآيات 50 إلى 60" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
-<div class="lesson" data-="oustaz mouhammad sirè kan" data-keywords="سورة النبأ">
-<h3>تفسير سورة عم يتساءلون TAFSIR SOURAT AMMA</h3>
-<div class="sheikh"> أستاذ محمد سيرين كان</div>
-<iframe loading="lazy" width="-100%" height="315" src="https://www.youtube.com/embed/i5BNBHE8_lc?si=IEgdnZkF_kHpd9ep" title="تفسير سورة عم يتساءلون TAFSIR SOURAT AMMA " frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<div class="lesson" data-sheikh="sire-kane" data-keywords="النبأ عم يتساءلون">
+  <h3>تفسير سورة عم يتساءلون TAFSIR SOURAT AMMA</h3>
+  <div class="sheikh">أستاذ محمد سيرين كان</div>
+  <iframe loading="lazy" width="100%" height="315" src="https://www.youtube.com/embed/i5BNBHE8_lc?si=IEgdnZkF_kHpd9ep" title="تفسير سورة عم يتساءلون TAFSIR SOURAT AMMA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
 <h2 id="links">روابط وصور</h2>
@@ -398,7 +399,8 @@ function applyFilters() {
     const sheikhOk = currentSheikh === "all" || lesson.dataset.sheikh === currentSheikh;
 
     const title = lesson.querySelector("h3").textContent;
-    const date = lesson.querySelector(".date").textContent;
+    const dateEl = lesson.querySelector(".date");
+    const date = dateEl ? dateEl.textContent : "";
     const sheikhEl = lesson.querySelector(".sheikh");
     const sheikhName = sheikhEl ? sheikhEl.textContent : "";
     const keywords = lesson.dataset.keywords || "";
@@ -417,7 +419,7 @@ searchInput.addEventListener("input", applyFilters);
 document.querySelectorAll(".sheikh-link").forEach(function (link) {
   link.addEventListener("click", function () {
     currentSheikh = link.dataset.sheikh;
-    filterInfo.textContent = currentSheikh === "all" ? "" : "دروس: " + link.textContent;
+    filterInfo.textContent = currentSheikh === "all" ? "" : "دروس: " + link.textContent.trim();
     applyFilters();
   });
 });
